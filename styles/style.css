@@ -1,0 +1,215 @@
+* {
+  font-size: 0;
+  box-sizing: border-box;
+}
+
+.shirt-grid {
+  width: 100%;
+  text-align: center;
+}
+
+.shirt-box {
+  border: 1.5px solid cornflowerblue;
+  max-width: 29%;
+  position: relative;
+  display: inline-block;
+  margin: 2%;
+}
+
+.top-flip {
+  position: absolute;
+  border: 1px solid cornflowerblue;
+  width: 25px;
+  right: 0;
+  transition: 0.5s ease all;
+}
+
+.shirt-box input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  top: 5px;
+  right: 0px;
+  transform: scale(1.5);
+}
+
+.shirt-box input[type="checkbox"] ~ img.back {
+  display: none;
+}
+
+.top-flip:hover {
+  background: cornflowerblue;
+}
+
+input[type="checkbox"]:checked ~ img.back {
+  display: inline-block;
+}
+
+input[type="checkbox"]:checked ~ img.front {
+  display: none;
+}
+
+.nav > div:hover {
+  background: cornflowerblue;
+}
+
+.top-flip:hover > i.material-icons, .nav div:hover > i.material-icons  { /* too many hovers, fix this */
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  padding: 5%;
+}
+
+.nav {
+  border: 1px solid blue;
+}
+
+.nav > div {
+  border: 0.5px solid cornflowerblue;
+  display: inline-block;
+  width: 20%;
+  font-size: 18px;
+  transition: 0.5s all ease;
+}
+
+.material-icons {
+  font-size: 1em;
+  color: cornflowerblue;
+  border: none;
+}
+
+.select-favorite {
+  position: relative;
+}
+
+.select-favorite input[type="checkbox"] { /* not a link but a checkbox, isn't a link necessary to favorite? */
+  position: absolute;
+  opacity: 0;
+  left: 43%;  /* dirty fix - clean up so it's centered */
+  transform: scale(1.8);
+}
+
+input[type="checkbox"] ~ i.favorite {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ i.favorite {
+  display: inline-block;
+}
+
+input[type="checkbox"]:checked ~ i.unfavorite {
+  display: none;
+}
+
+.size {
+  position: relative;
+  padding-top: 7px;
+}
+
+p.selected-size{
+  font-size: 0.9em;
+  text-align: center;
+  color: cornflowerblue;
+  margin: auto;
+  transform: translateY(-35%); /* Messy fix */
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+}
+
+.available-sizes {
+  color: cornflowerblue;
+  position: absolute;
+  font-size: 0.9em;
+  padding: 0;
+  border: 1px solid cornflowerblue;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s all ease;
+  transform: translateY(-150%); /* Messy fix */
+  z-index: 0;
+}
+
+.available-sizes i { /* fontawesome wasn't working, will need to replace pictures with pictures of shirts */
+  list-style: none;
+  display: block;
+}
+
+.size:hover > .available-sizes {
+  opacity: 1;
+  transform: translateY(-125%);
+}
+
+.size:hover > p {
+  color: white;
+}
+
+.color {
+  position: relative;
+  padding-top: 4px;
+}
+
+.chosen-color {
+  width: 20px;
+  background: orange;
+  display: inline-block;
+  padding: 10px;
+}
+
+.available-colors {
+  position: absolute;
+  width: 100%;
+  border: 2px solid cornflowerblue;
+  transition: 0.5s all ease;
+  transform: translateY(-150%); /* Messy fix */
+  z-index: 0;
+  opacity: 0;
+}
+
+.available-colors div {
+  width: 20%;
+  height: 20%;
+  background: cornflowerblue; /* need all different colors. current color is placeholder */
+  display: inline-block;
+  margin: 10%;
+  padding: 5px;
+}
+
+.color:hover > .available-colors {
+  opacity: 1;
+  transform: translateY(-107%);
+  background: none;
+}
+
+.details p, .details strong{
+  display: inline-block;
+  font-size: 22px;
+  margin: 5px 0px;
+  border: none;
+  color: cornflowerblue;
+}
+
+.details p {
+  width: 70%;
+  text-align: left;
+  padding-left: 7px;
+}
+
+.details strong {
+  width: 30%;
+  text-align: right;
+  padding-right: 7px;
+}
+
+@media (max-width: 750px) {
+  .shirt-box {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 500px) {
+  .shirt-box {
+    max-width: 100%;
+  }
+}
